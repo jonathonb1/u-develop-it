@@ -20,6 +20,9 @@ const db = mysql.createConnection(
     console.log('Connected to the election database.')
 );
 
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+});
 
 
 
@@ -27,8 +30,7 @@ const db = mysql.createConnection(
 
 
 
-
-// Default response for any other requests (Not found)
+// Default response for any other requests (Not found) (catchall route)
 app.use((req, res) => {
     res.status(404).end();
 });
